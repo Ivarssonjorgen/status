@@ -15,12 +15,15 @@ h1, h2, h3, h4, h5 {
   justify-content: center; 
   text-align: center;
   border: solid;
+  border-width: thin;
+  width: 75%;
 }
 
 #month {
   background: #b3433c;
   height:50px;
   color: white;
+  width:100%;
 }
 
 #day {

@@ -61,6 +61,11 @@ li span {
   left: -12px;
 }
 
+#support {
+  border-top: 1px solid #ccc;
+  padding-top: 8px 
+}
+
 img {
   width: 100%;
 }

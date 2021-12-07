@@ -51,13 +51,13 @@ h1, h2, h3, h4, h5 {
   display:block
 }
 
-#status {
-  justify-content: center; 
+#status { 
   text-align: left;
   font-size: 1.2rem;
   color: black;
   display:block;
   border-bottom: 1px solid #ccc;
+  padding-right: 20%;
   padding-bottom: 8px; 
 }
 

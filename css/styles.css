@@ -19,6 +19,12 @@ h1, h2, h3, h4, h5 {
   width: 75%;
 }
 
+#weekday {
+  color: black;
+  font-size: 1.5rem;
+ 
+}
+
 #month {
   background: #b3433c;
   height:50px;

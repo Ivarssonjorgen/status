@@ -10,14 +10,14 @@ h1, h2, h3, h4, h5 {
   text-align: center;
 }
 #calendar {
-  position: relative;
+  margin: auto;
   background: white;
   display: block; 
   justify-content: center; 
   text-align: center;
   border: solid;
   border-width: thin;
-  width: 75%;
+  width: auto;
 }
 
 #weekday {

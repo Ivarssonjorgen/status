@@ -20,11 +20,15 @@ h1, h2, h3, h4, h5 {
 
 #month {
   background: #b3433c;
-  height:40px;
+  height:50px;
 }
 
 #day {
-  font-size: 3rem;
+  font-size: 5rem;
+}
+
+#year {
+  font-size: 1.5rem;
 }
 
 img {

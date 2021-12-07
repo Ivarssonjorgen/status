@@ -17,6 +17,14 @@ h1, h2, h3, h4, h5 {
   border: solid;
 }
 
+.month {
+  background: #ef8c8b;
+}
+
+.day {
+  font-size: 3rem;
+}
+
 img {
   width: 100%;
 }

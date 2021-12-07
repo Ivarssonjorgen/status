@@ -3,6 +3,7 @@ h1, h2, h3, h4, h5 {
   border-bottom: 1px solid #ccc;
   color: #3F51B5;
   padding-bottom: 8px
+  font-family: Helvetica, Verdana, sans-serif;
 }
 .container {
   margin: auto;

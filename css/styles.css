@@ -50,6 +50,7 @@ h1, h2, h3, h4, h5 {
 }
 
 #status {
+  text-align: center;
   font-size: 1.0rem;
   color: black;
   display:block

@@ -47,6 +47,12 @@ h1, h2, h3, h4, h5 {
   display:block
 }
 
+#status {
+  font-size: 1.5rem;
+  color: black;
+  display:block
+}
+
 img {
   width: 100%;
 }

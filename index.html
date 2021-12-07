@@ -32,13 +32,12 @@
    <h1>Jörgen Ivarsson</h1>
    <h3>Presentation</h3>
    <h4><script> document.write ( event.toLocaleDateString('sv-SE', weekday) ); </script></h4>
-   <div class="listFlex">
+   <div class="calendar">
       <div>
-         <ul>
-           <li><strong>Datum:</strong><script> document.write ( event.toLocaleDateString('sv-SE', month) ); </script></li>
-           <li><strong>Status:</strong><script> document.write ( event.toLocaleDateString('sv-SE', day) ); </script></li>
-           <li><strong>Kontakt:</strong><script> document.write ( event.toLocaleDateString('sv-SE', year) ); </script></li>
-         </ul>
+         <script> document.write ( event.toLocaleDateString('sv-SE', month) ); </script><br >
+         <script> document.write ( event.toLocaleDateString('sv-SE', day) ); </script><br>
+         <script> document.write ( event.toLocaleDateString('sv-SE', year) ); </script>
+        
       </div>
    </div>
    <h4>Support</h4>

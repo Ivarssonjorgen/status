@@ -5,11 +5,16 @@ h1, h2, h3, h4, h5 {
   padding-bottom: 8px
 }
 .container {
+  background: white;
   margin: auto;
   width: 350px;
   text-align: center;
 }
-.listFlex {display: flex; justify-content: left; text-align: left;}
+.listFlex {
+  display: flex; 
+  justify-content: center; 
+  text-align: center;
+}
 
 img {
   width: 100%;

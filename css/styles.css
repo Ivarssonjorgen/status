@@ -57,7 +57,7 @@ h1, h2, h3, h4, h5 {
   color: black;
   display:block;
   border-bottom: 1px solid #ccc;
-  padding-left: 10%;
+  padding-left: 5%;
   padding-bottom: 8px; 
 }
 
@@ -67,7 +67,7 @@ li {
 
 li span {
   position: relative;
-  left: 20px;
+  left: 24px;
 }
 
 #support {

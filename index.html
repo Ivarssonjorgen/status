@@ -1,52 +1,79 @@
 <!doctype html>
 
 <html lang="sv">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Status</title>
-  <meta name="description" content="My personal status page">
-  <meta name="author" content="status">
+    <title>Status</title>
+    <meta name="description" content="My personal status page" />
+    <meta name="author" content="status" />
 
-  <meta property="og:title" content="Jörgen Ivarssons status">
-  <meta property="og:type" content="website">
-  <script>
-    const event = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const weekday = { weekday: 'long'};
-    const day = { day: 'numeric'};
-    const month = { month: 'long'};
-    const year = {year: 'numeric'};
-  </script>
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta property="og:title" content="Jörgen Ivarssons status" />
+    <meta property="og:type" content="website" />
+    <script>
+      const event = new Date();
+      const options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+      const weekday = { weekday: "long" };
+      const day = { day: "numeric" };
+      const month = { month: "long" };
+      const year = { year: "numeric" };
+    </script>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="css/styles.css?v=1.0" />
+  </head>
 
-</head>
-
-<body>
-  <div class="container">
-   <h1>Jörgen Ivarsson</h1>
-   <div id="calendar">
-
-         <div id="month"><script> document.write ( event.toLocaleDateString('sv-SE', month) ); </script></div>
-         <div id="day"><script> document.write ( event.toLocaleDateString('sv-SE', day) ); </script></div>
-         <div id="year"><script> document.write ( event.toLocaleDateString('sv-SE', year) ); </script></div>
-
-   </div>
-     <h3 id="weekday"><script> document.write ( event.toLocaleDateString('sv-SE', weekday) ); </script></h3>
-    <div id="status">
-      <ul style="list-style-type:none;">
-        <li><span><strong>Plats:</strong> På jobbet </span></li>
-        <li><span><strong>Kontakt:</strong> Knacka på </span><li>
-        <li><span><strong>I morgon:</strong> På jobbet </span></li>
-      </ul>
+  <body>
+    <div class="container">
+      <h1>Jörgen Ivarsson</h1>
+      <div id="calendar">
+        <div id="month">
+          <script>
+            document.write(event.toLocaleDateString("sv-SE", month));
+          </script>
+        </div>
+        <div id="day">
+          <script>
+            document.write(event.toLocaleDateString("sv-SE", day));
+          </script>
+        </div>
+        <div id="year">
+          <script>
+            document.write(event.toLocaleDateString("sv-SE", year));
+          </script>
+        </div>
+      </div>
+      <h3 id="weekday">
+        <script>
+          document.write(event.toLocaleDateString("sv-SE", weekday));
+        </script>
+      </h3>
+      <div id="status">
+        <ul style="list-style-type: none">
+          <li>
+            <span><strong>Plats:</strong> På jobbet </span>
+          </li>
+          <li>
+            <span><strong>Kontakt:</strong> Knacka på </span>
+          </li>
+          <li></li>
+          <li>
+            <span><strong>I morgon:</strong> På jobbet </span>
+          </li>
+        </ul>
+      </div>
+      <div id="support">
+        Behöver du support? Kontakta
+        <a href="https://www.umu.se/servicedesk/kontakta-oss/">HelpDesk</a>
+      </div>
     </div>
-   <div id="support">
-   Behöver du support? Kontakta <a href="https://www.umu.se/servicedesk/kontakta-oss/">HelpDesk</a>   </div>
-</div>
-</body>
+  </body>
 </html>

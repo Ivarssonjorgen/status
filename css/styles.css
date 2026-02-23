@@ -12,7 +12,7 @@ h1, h2, h3, h4, h5 {
 }
 #calendar {
   font-family: Times,"Times New Roman",serif;
-  margin: 10% 25%;
+  margin: 5% 25%;
   background: white;
   display: block;
   justify-content: center;
@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5 {
   display:block;
   border-bottom: 1px solid #ccc;
   padding-left: 25%;
-  padding-bottom: 8px;
+  
 }
 
 #contact {
@@ -79,9 +79,6 @@ li span {
   left: 24px;
 }
 
-#support {
-  margin-top: 5%;
-}
 
 img {
   width: 100%;

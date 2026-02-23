@@ -2,7 +2,6 @@
 <html lang="sv">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Status</title>
     <meta name="description" content="My personal status page" />
     <meta name="author" content="status" />
@@ -36,6 +35,12 @@
         <ul id="week-status" style="list-style-type: none; padding: 0"></ul>
       </div>
 
+
+      <div id="contact">
+        <strong>Kontakt:</strong> <span id="contact-method"></span>
+      </div>
+
+
       <div id="support">
         Behöver du support? Kontakta
         <a href="https://www.umu.se/servicedesk/kontakta-oss/">HelpDesk</a>
@@ -46,7 +51,7 @@
     <script>
       const today = new Date();
 
-      /* ===== Kalender (samma funktion som tidigare) ===== */
+      /* ===== Kalender (samma visning som tidigare) ===== */
       document.getElementById("month").textContent =
         today.toLocaleDateString("sv-SE", { month: "long" });
 
@@ -59,44 +64,65 @@
       document.getElementById("weekday").textContent =
         today.toLocaleDateString("sv-SE", { weekday: "long" });
 
-      /* ===== Arbetsvecka + närvaro ===== */
+      /* ===== Arbetsvecka + närvaro =====
+         Justera "location" per din rutin:
+         - "Kontoret"
+         - "Hemifrån"
+      */
       const workWeek = [
         { day: 1, name: "Måndag", location: "Kontoret" },
-        { day: 2, name: "Tisdag", location: "Hemifrån" },
-        { day: 3, name: "Onsdag", location: "Kontoret" },
-        { day: 4, name: "Torsdag", location: "Hemifrån" },
+        { day: 2, name: "Tisdag", location: "Kontoret" },
+        { day: 3, name: "Onsdag", location: "Hemifrån" },
+        { day: 4, name: "Torsdag",location: "Kontoret" },
         { day: 5, name: "Fredag", location: "Kontoret" },
       ];
 
-      function getRemainingWorkDays() {
-        const todayDay = today.getDay(); // 0–6
-        return workWeek.filter(d => d.day >= todayDay);
+      function getRemainingWorkDays(referenceDate = new Date()) {
+        const todayDay = referenceDate.getDay(); // 0–6 (0=sön, 1=mån,...,6=lör)
+        // Filtrera fram idag + resterande till fredag
+        return workWeek.filter((d) => d.day >= todayDay);
+      }
+
+      // Hämta dagens arbetsplats (endast mån–fre, annars null)
+      function getTodayWorkLocation(referenceDate = new Date()) {
+        const todayDay = referenceDate.getDay();
+        const entry = workWeek.find((d) => d.day === todayDay);
+        return entry ? entry.location : null;
+      }
+
+      // Översätt plats -> kontaktsätt
+      function contactMethodFromLocation(location) {
+        if (location === "Hemifrån") return "Teams";
+        if (location === "Kontoret") return "Knacka på";
+        return "—";
       }
 
       function renderWeekStatus() {
         const list = document.getElementById("week-status");
         list.innerHTML = "";
 
-        const days = getRemainingWorkDays();
+        const days = getRemainingWorkDays(today);
 
         if (days.length === 0) {
           const li = document.createElement("li");
           li.textContent = "Ingen arbetsdag kvar denna vecka";
           list.appendChild(li);
-          return;
+        } else {
+          days.forEach((day, index) => {
+            const li = document.createElement("li");
+            if (index === 0) {
+              li.innerHTML = `<strong>${day.name}</strong> – ${day.location}`;
+            } else {
+              li.textContent = `${day.name} – ${day.location}`;
+            }
+            list.appendChild(li);
+          });
         }
 
-        days.forEach((day, index) => {
-          const li = document.createElement("li");
-
-          if (index === 0) {
-            li.innerHTML = `<strong>${day.name}</strong> – ${day.location}`;
-          } else {
-            li.textContent = `${day.name} – ${day.location}`;
-          }
-
-          list.appendChild(li);
-        });
+        // Kontakt-raden baserat på Dagens status (mån–fre)
+        const todaysLocation = getTodayWorkLocation(today);
+        const contactText = contactMethodFromLocation(todaysLocation);
+        document.getElementById("contact-method").textContent = contactText;
       }
 
       renderWeekStatus();

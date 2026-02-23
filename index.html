@@ -1,29 +1,15 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="sv">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <title>Status</title>
     <meta name="description" content="My personal status page" />
     <meta name="author" content="status" />
 
     <meta property="og:title" content="Jörgen Ivarssons status" />
     <meta property="og:type" content="website" />
-    <script>
-      const event = new Date();
-      const options = {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      };
-      const weekday = { weekday: "long" };
-      const day = { day: "numeric" };
-      const month = { month: "long" };
-      const year = { year: "numeric" };
-    </script>
+
     <link rel="icon" href="/favicon.ico" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -34,46 +20,86 @@
   <body>
     <div class="container">
       <h1>Jörgen Ivarsson</h1>
+
+      <!-- Kalenderblad – behållet -->
       <div id="calendar">
-        <div id="month">
-          <script>
-            document.write(event.toLocaleDateString("sv-SE", month));
-          </script>
-        </div>
-        <div id="day">
-          <script>
-            document.write(event.toLocaleDateString("sv-SE", day));
-          </script>
-        </div>
-        <div id="year">
-          <script>
-            document.write(event.toLocaleDateString("sv-SE", year));
-          </script>
-        </div>
+        <div id="month"></div>
+        <div id="day"></div>
+        <div id="year"></div>
       </div>
-      <h3 id="weekday">
-        <script>
-          document.write(event.toLocaleDateString("sv-SE", weekday));
-        </script>
-      </h3>
+
+      <!-- Veckodag -->
+      <h3 id="weekday"></h3>
+
+      <!-- Statuslista -->
       <div id="status">
-        <ul style="list-style-type: none">
-          <li>
-            <span><strong>Plats: </strong>På jobbet</span>
-          </li>
-          <li>
-            <span><strong>Kontakt: </strong>Knacka på!</span>
-          </li>
-          <li></li>
-          <li>
-            <span><strong>I morgon: </strong>På jobbet</span>
-          </li>
-        </ul>
+        <ul id="week-status" style="list-style-type: none; padding: 0"></ul>
       </div>
+
       <div id="support">
         Behöver du support? Kontakta
         <a href="https://www.umu.se/servicedesk/kontakta-oss/">HelpDesk</a>
       </div>
     </div>
+
+    <!-- JavaScript -->
+    <script>
+      const today = new Date();
+
+      /* ===== Kalender (samma funktion som tidigare) ===== */
+      document.getElementById("month").textContent =
+        today.toLocaleDateString("sv-SE", { month: "long" });
+
+      document.getElementById("day").textContent =
+        today.toLocaleDateString("sv-SE", { day: "numeric" });
+
+      document.getElementById("year").textContent =
+        today.toLocaleDateString("sv-SE", { year: "numeric" });
+
+      document.getElementById("weekday").textContent =
+        today.toLocaleDateString("sv-SE", { weekday: "long" });
+
+      /* ===== Arbetsvecka + närvaro ===== */
+      const workWeek = [
+        { day: 1, name: "Måndag", location: "Kontoret" },
+        { day: 2, name: "Tisdag", location: "Hemifrån" },
+        { day: 3, name: "Onsdag", location: "Kontoret" },
+        { day: 4, name: "Torsdag", location: "Hemifrån" },
+        { day: 5, name: "Fredag", location: "Kontoret" },
+      ];
+
+      function getRemainingWorkDays() {
+        const todayDay = today.getDay(); // 0–6
+        return workWeek.filter(d => d.day >= todayDay);
+      }
+
+      function renderWeekStatus() {
+        const list = document.getElementById("week-status");
+        list.innerHTML = "";
+
+        const days = getRemainingWorkDays();
+
+        if (days.length === 0) {
+          const li = document.createElement("li");
+          li.textContent = "Ingen arbetsdag kvar denna vecka";
+          list.appendChild(li);
+          return;
+        }
+
+        days.forEach((day, index) => {
+          const li = document.createElement("li");
+
+          if (index === 0) {
+            li.innerHTML = `<strong>${day.name}</strong> – ${day.location}`;
+          } else {
+            li.textContent = `${day.name} – ${day.location}`;
+          }
+
+          list.appendChild(li);
+        });
+      }
+
+      renderWeekStatus();
+    </script>
   </body>
 </html>

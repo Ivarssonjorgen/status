@@ -14,8 +14,8 @@ h1, h2, h3, h4, h5 {
   font-family: Times,"Times New Roman",serif;
   margin: 10% 25%;
   background: white;
-  display: block; 
-  justify-content: center; 
+  display: block;
+  justify-content: center;
   text-align: center;
   border: solid;
   border-width: thin;
@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5 {
   color: #2a4964;
   font-size: 1.5rem;
   display: block;
- 
+
 }
 
 #month {
@@ -51,14 +51,14 @@ h1, h2, h3, h4, h5 {
   display:block
 }
 
-#status { 
+#status {
   text-align: left;
   font-size: 1.2rem;
   color: black;
   display:block;
   border-bottom: 1px solid #ccc;
-  padding-left: 5%;
-  padding-bottom: 8px; 
+  padding-left: 25%;
+  padding-bottom: 8px;
 }
 
 li {

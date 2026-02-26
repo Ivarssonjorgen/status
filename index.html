@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
   <head>
     <meta charset="utf-8" />
@@ -36,11 +36,9 @@
         <ul id="week-status" style="list-style-type: none; padding: 0"></ul>
       </div>
 
-
       <div id="contact">
         <strong>Kontakt:</strong> <span id="contact-method"></span>
       </div>
-
     </div>
 
     <!-- JavaScript -->
@@ -48,17 +46,25 @@
       const today = new Date();
 
       /* ===== Kalender (samma visning som tidigare) ===== */
-      document.getElementById("month").textContent =
-        today.toLocaleDateString("sv-SE", { month: "long" });
+      document.getElementById("month").textContent = today.toLocaleDateString(
+        "sv-SE",
+        { month: "long" },
+      );
 
-      document.getElementById("day").textContent =
-        today.toLocaleDateString("sv-SE", { day: "numeric" });
+      document.getElementById("day").textContent = today.toLocaleDateString(
+        "sv-SE",
+        { day: "numeric" },
+      );
 
-      document.getElementById("year").textContent =
-        today.toLocaleDateString("sv-SE", { year: "numeric" });
+      document.getElementById("year").textContent = today.toLocaleDateString(
+        "sv-SE",
+        { year: "numeric" },
+      );
 
-      document.getElementById("weekday").textContent =
-        today.toLocaleDateString("sv-SE", { weekday: "long" });
+      document.getElementById("weekday").textContent = today.toLocaleDateString(
+        "sv-SE",
+        { weekday: "long" },
+      );
 
       /* ===== Arbetsvecka + närvaro =====
          Justera "location" per din rutin:
@@ -69,8 +75,8 @@
         { day: 1, name: "Måndag", location: "Kontoret" },
         { day: 2, name: "Tisdag", location: "Kontoret" },
         { day: 3, name: "Onsdag", location: "Hemifrån" },
-        { day: 4, name: "Torsdag",location: "Kontoret" },
-        { day: 5, name: "Fredag", location: "Kontoret" },
+        { day: 4, name: "Torsdag", location: "Kontoret" },
+        { day: 5, name: "Fredag", location: "Hemifrån" },
       ];
 
       function getRemainingWorkDays(referenceDate = new Date()) {

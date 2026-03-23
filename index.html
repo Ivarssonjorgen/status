@@ -73,10 +73,10 @@
       */
       const workWeek = [
         { day: 1, name: "Måndag", location: "Kontoret" },
-        { day: 2, name: "Tisdag", location: "Hemifrån" },
-        { day: 3, name: "Onsdag", location: "Kontoret" },
-        { day: 4, name: "Torsdag", location: "Kontoret" },
-        { day: 5, name: "Fredag", location: "Hemifrån" },
+        { day: 2, name: "Tisdag", location: "Semester" },
+        { day: 3, name: "Onsdag", location: "Semester" },
+        { day: 4, name: "Torsdag", location: "Hemifrån" },
+        { day: 5, name: "Fredag", location: "Kontoret" },
       ];
 
       function getRemainingWorkDays(referenceDate = new Date()) {
@@ -96,6 +96,7 @@
       function contactMethodFromLocation(location) {
         if (location === "Hemifrån") return "Teams";
         if (location === "Kontoret") return "Knacka på";
+        if (location === "Semester") return "Ej tillgänglig";
         return "—";
       }
 

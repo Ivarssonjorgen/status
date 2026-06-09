@@ -74,7 +74,7 @@
       const workWeek = [
         { day: 1, name: "Måndag", location: "Kontoret" },
         { day: 2, name: "Tisdag", location: "Kontoret" },
-        { day: 3, name: "Onsdag", location: "Hemifrån" },
+        { day: 3, name: "Onsdag", location: "Ledig" },
         { day: 4, name: "Torsdag", location: "Kontoret" },
         { day: 5, name: "Fredag", location: "Hemifrån" },
       ];
@@ -98,6 +98,7 @@
         if (location === "Kontoret") return "Knacka på";
         if (location === "Semester") return "Ej tillgänglig";
         if (location === "Helgdag") return "Ej tillgänglig";
+        if (location === "Ledig") return "Ej tillgänglig";
         return "—";
       }
 
